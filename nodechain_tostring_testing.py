@@ -1,5 +1,9 @@
 # CMPT 145:Question nodechain_tostring tests code
 # test script
+# Name: ALinda Kumar Mazumder
+# NSID: ugj683
+# Student no: 11342454
+# CMPT-145
 
 # import nodechain_tostring_provided as to_string_file
 import a3q2 as to_string_file
