@@ -28,23 +28,19 @@ def to_string(node_chain):
     Return: A string representation of the nodes.
         NOTE: THIS VERSION OF THE FUNCTION IS KNOWN TO BE BROKEN!!!
     """
-    # special case: empty node chain
     if node_chain is None:
-        result = 'EMPTY'
-    else:
-        # walk along the chain
-        walker = node_chain
+        return 'EMPTY'
+
+    # walk along the chain
+    walker = node_chain
+    result = '[ {} |'.format(str(walker.get_data()))
+
+    while walker.get_next() is not None:
+        walker = walker.get_next()
         value = walker.get_data()
-        # print the data
-        result = '[ {} |'.format(str(value))
-        while walker is not None:
-            walker = walker.get_next()
-            value = walker.get_data()
-            # represent the next with an arrow-like figure
-            result += ' *-]-->[ {} |'.format(str(value))
+        # represent the next with an arrow-like figure
+        result += ' *-]-->[ {} |'.format(str(value))
 
-        # at the end of the chain, use '/'
-        result += ' / ]'
-
+    # at the end of the chain, use '/'
+    result += ' / ]'
     return result
-
